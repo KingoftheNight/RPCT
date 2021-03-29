@@ -25,3 +25,13 @@ python RPCT_linux.py read file_name -o out_folder
 ```
 python RPCT_linux.py read test_positive.fasta -o test_p
 ```
+#### 2. Blast
+Get PSSM profiles by _PSIBLAST_ function which supports by _BLAST+_.
+#### Command line
+```
+python RPCT_linux.py blast input_folder_name -db blast_database_name -n num_iterations -ev expected_value -o out_folder
+```
+#### Example
+```
+python RPCT_linux.py blast test_p -db pdbaa -n 3 -ev 0.001 -o pssm-tp
+```
