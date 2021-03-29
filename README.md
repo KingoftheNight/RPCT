@@ -17,11 +17,11 @@ python RPCT_linux.py <Fuctions> <parameters>
 ### Usage For Linux
 #### 1. Read
 Load your Fasta datasets and split them into separate fasta files.
-Command line
+#### Command line
 ```
 python RPCT_linux.py read file_name -o out_folder
 ```
-Example
+#### Example
 ```
 python RPCT_linux.py read test_positive.fasta -o test_p
 ```
