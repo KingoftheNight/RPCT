@@ -14,5 +14,9 @@ python RPCT_windows.py
 ```
 python RPCT_linux.py <Fuctions> <parameters>
 ```
-### Usage
+### Usage For Linux
+1. read. Load your Fasta datasets and split them into separate fasta files.
 #### Command line
+```bash
+python RPCT_linux.py read file_name -o out_folder
+```
