@@ -46,9 +46,11 @@ Extract feature files through RAAC-PSSM extract method.
 #### Command line
 ```
 python RPCT_linux.py extract input_folder_name -raa raac_book_name -o out_folder -l windows_size -r self_raa_code
-# -raa  raac book saved in raacDB folder in rpct, you can not use this parameter and -r together.
-# -o    if you choose the parameter -raa, you should input a folder name, and if you choose the parameter -r, you should input a file name
-# -r    self_raa_code format should contain all amino acid types, and be separated by '-', for example: LVIMC-AGST-PHC-FYW-EDNQ-KR
+
+# optional arguments:
+#   -raa  raac book saved in raacDB folder in rpct, you can not use this parameter and -r together.
+#   -o    if you choose the parameter -raa, you should input a folder name, and if you choose the parameter -r, you should input a file name
+#   -r    self_raa_code format should contain all amino acid types, and be separated by '-', for example: LVIMC-AGST-PHC-FYW-EDNQ-KR
 ```
 #### Example
 ```
