@@ -59,7 +59,7 @@ python RPCT_linux.py extract pssm-tp -raa raaCODE -o Train_fs -l 5
 python RPCT_linux.py extract pssm-tp -o My_train -l 5 -r LVIMC-AGST-PHC-FYW-EDNQ-KR
 ```
 #### 4. Search
-Search Hyperparameters of the target feature file through LIBSVM (https://www.csie.ntu.edu.tw/~cjlin/libsvm/oldfiles/index-1.0.html).
+Search Hyperparameters of the target feature file through the grid function provided by LIBSVM (https://www.csie.ntu.edu.tw/~cjlin/libsvm/oldfiles/index-1.0.html).
 #### Command line
 ```
 python RPCT_linux.py search -d document_name -f folder_name
