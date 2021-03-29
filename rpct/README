@@ -1,0 +1,51 @@
+#################### RAAC-PSSM Protein Classify Toolkit ####################
+###                                                                      ###
+###                                                 Author: Liang YuChao ###
+###                                                 Date: March 25, 2021 ###
+###                                                                      ###
+### Introduction:                                                        ###
+###                                                                      ###
+### The RPCT toolkit is a dedicated toolkit based on the RAAC-PSSM prot- ###
+### ein classification prediction method. It uses 7 feature extraction   ###
+### methods including raaPSSM,OAAC,SAAC,raaKmer,raaSW,raaKPSSM and raaD- ###
+### TPSSM. And it uses support vector machines for model prediction.     ###
+###                                                                      ###
+### Note:                                                                ###
+###                                                                      ###
+### The RPCT toolkit can be used on both Windows and Linux platforms. P- ###
+### lease pay attention to the following information before using:       ###
+###                                                                      ###
+### 1.Please confirm whether to install Anaconda and Python environment  ###
+### 2.Please confirm whether to install the BLAST+ version supported by  ###
+###   Linux (Conda install -c bioconda blast)                            ###
+### 3.Please confirm whether Python is added to the environment variable ###
+### 4.Please confirm whether the following packages have been added to   ###
+###   Python: ray, sklearn, matplotlib, numpy (Conda install -c package_ ###
+###   name)                                                              ###
+###                                                                      ###
+### Precautions for Windows:                                             ###
+###                                                                      ###
+### 1.Open RPCT GUI                                                      ###
+###                                                                      ###
+### Please open cmd by <win+R>, and input <cd RPCT_Toolkit_path> to ent- ###
+### er the work path of RPCT Toolkit. Then, input <python RPCT_windows.p ###
+### y> and wait for a moment.                                            ###
+###                                                                      ###
+### 2.View toolkit information                                           ###
+###                                                                      ###
+### After opening the GUI, you can see the creation time of current pro- ###
+### ject and the current working path under the GUI. Click the File menu ###
+### , and choose <Edit RAAC Database> to view and modify the RAAC Book.  ###
+###                                                                      ###
+###                                                                      ###
+###                                                                      ###
+###                                                                      ###
+###                                                                      ###
+###                                                                      ###
+###                                                                      ###
+
+
+
+
+
+

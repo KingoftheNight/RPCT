@@ -1,0 +1,15 @@
+
+═══════════ Fri Mar 26 17:08:06 2021 ════════════
+makedb test_db.txt -o test
+═══════════ Mon Mar 29 14:57:03 2021 ════════════
+extract pssm-rp pssm-rn -raa .\rpct\raacDB\raaCODE -o Train_r_50 -l 5
+eval -f Train_r_50 -cg Hys_8.txt -cv 5 -o Eval_r_50
+eval -f Train_p_50 -cg Hys_8.txt -cv 5 -o Eval_p_50
+═══════════ Sat Mar 27 19:02:51 2021 ════════════
+extract pssm-p pssm-n -raa .\rpct\raacDB\raaCODE -o Train_50 -l 5
+makehys Train_50 -o Hys_8 -c 8 -g 0.125
+makehys Train_50 -o Hys_8.txt -c 8 -g 0.125
+eval -f Train_50 -cg Hys_8.txt -cv 5 -o Eval_50
+blast r_tp -db pdbaa -n 3 -ev 0.001 -o pssm-pp
+blast r_tn -db pdbaa -n 3 -ev 0.001 -o pssm-pn
+extract pssm-pp pssm-pn -raa .\rpct\raacDB\raaCODE -o Train_p_50 -l 5
