@@ -73,3 +73,19 @@ python RPCT_linux.py search -d document_name -f folder_name
 python RPCT_linux.py search -d .\Train_fs\t1s2_rpct.fs
 python RPCT_linux.py search -f Train_fs
 ```
+#### 5. Filter
+Filter the features of the target feature file through the IFS-RF method (Incremental Feature Selection based on the Relief-Fscore method).
+#### Command line
+```
+python RPCT_linux.py filter document_name -c c_number -g gamma -cv cross_validation_fold -n feature_number -o out_file_name -r random_number
+
+# optional arguments:
+#   -c    the penalty coefficient of SVM, you can get it through Search function or define it by your experience.
+#   -g    the gamma of RBF-SVM, you can get it through Search function or define it by your experience.
+#   -cv   the cross validation fold of SVM, you can choose 5, 10 or -1 or define it by your experience.
+#   -r    the random sampling number of Relief method.
+```
+#### Example
+```
+python RPCT_linux.py filter .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -cv 5 -n 190 -o t1s2 -r 30
+```
