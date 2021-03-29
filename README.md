@@ -7,6 +7,7 @@ The RPCT toolkit is a dedicated toolkit based on the RAAC-PSSM prot-ein classifi
 ```
 # install packages by conda
 conda install package_name
+
 # install blast+ by conda
 conda install -c bioconda blast
 ```
@@ -48,7 +49,7 @@ Extract feature files through RAAC-PSSM extract method.
 python RPCT_linux.py extract input_folder_name -raa raac_book_name -o out_folder -l windows_size -r self_raa_code
 
 # optional arguments:
-#   -raa  raac book saved in raacDB folder in rpct, you can not use this parameter and -r together.
+#   -raa  raac book saved in raacDB folder in rpct, and you can not use this parameter and -r together.
 #   -o    if you choose the parameter -raa, you should input a folder name, and if you choose the parameter -r, you should input a file name
 #   -r    self_raa_code format should contain all amino acid types, and be separated by '-', for example: LVIMC-AGST-PHC-FYW-EDNQ-KR
 ```
@@ -56,4 +57,19 @@ python RPCT_linux.py extract input_folder_name -raa raac_book_name -o out_folder
 ```
 python RPCT_linux.py extract pssm-tp -raa raaCODE -o Train_fs -l 5
 python RPCT_linux.py extract pssm-tp -o My_train -l 5 -r LVIMC-AGST-PHC-FYW-EDNQ-KR
+```
+#### 4. Search
+Search Hyperparameters of the target feature file through LIBSVM (https://www.csie.ntu.edu.tw/~cjlin/libsvm/oldfiles/index-1.0.html).
+#### Command line
+```
+python RPCT_linux.py search -d document_name -f folder_name
+
+# optional arguments:
+#   -d    input the target feature file and output a single result of it, and you can not use this parameter and -f together.
+#   -f    input the target feature folder and output the Hyperparameters file which contains all results of the feature folder, and you can not use this parameter and -d together.
+```
+#### Example
+```
+python RPCT_linux.py search -d .\Train_fs\t1s2_rpct.fs
+python RPCT_linux.py search -f Train_fs
 ```
