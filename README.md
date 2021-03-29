@@ -89,3 +89,18 @@ python RPCT_linux.py filter document_name -c c_number -g gamma -cv cross_validat
 ```
 python RPCT_linux.py filter .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -cv 5 -n 190 -o t1s2 -r 30
 ```
+#### 6. Filter Features File Setting
+Create a filtered feature file of the target feature file through the Feature_Sort_File which has been output in Filter function.
+#### Command line
+```
+python RPCT_linux.py fffs document_name -f feature_sort_file -n hole_feature_number -l last_feature_number
+
+# optional arguments:
+#   -f    the Feature_Sort_File.
+#   -n    the gamma of RBF-SVM, you can get it through Search function or define it by your experience.
+#   -l    the cross validation fold of SVM, you can choose 5, 10 or -1 or define it by your experience.
+```
+#### Example
+```
+python RPCT_linux.py fffs .\Train_fs\t1s2_rpct.fs -f t1s2-ifs.txt -n 190 -l 72
+```
