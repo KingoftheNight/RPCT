@@ -7,10 +7,12 @@ The RPCT toolkit is a dedicated toolkit based on the RAAC-PSSM prot-ein classifi
 2. Please convert the data to FASTA format.
 3. The RPCT toolkit supports both windows and linux platforms. Before you run RPCT, you should check your commands.
 #### Run RPCT by windows
-   ```
-   python RPCT_windows.py
-   ```
+```
+python RPCT_windows.py
+```
 #### Run RPCT by linux
-   ```
-   python RPCT_linux.py <Fuctions> <parameters>
-   ```
+```
+python RPCT_linux.py <Fuctions> <parameters>
+```
+### Usage
+#### Command line
