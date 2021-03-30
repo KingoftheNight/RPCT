@@ -132,7 +132,7 @@ python RPCT_linux.py train -d document_name -f input_folder_name -c c_number -g 
 #   -c    the penalty coefficient of SVM, and you can not use this parameter with -f and -cg together.
 #   -g    the gamma of RBF-SVM, and you can not use this parameter with -f and -cg together.
 #   -o    if you choose the parameter -f, you should input a folder name, and if you choose the parameter -d, you should input a file name.
-#   -cg   the Hyperparameters file which has been created in Search function (4), and you can not use this parameter with -d, -c and -g together.
+#   -cg   the Hyperparameters file which has been created in Search function (4) or defined in Mhys function (14), and you can not use this parameter with -d, -c and -g together.
 ```
 #### Example
 ```
@@ -151,7 +151,7 @@ python RPCT_linux.py eval -d document_name -f folder_name -c c_number -g gamma -
 #   -c    the penalty coefficient of SVM, and you can not use this parameter with -f and -cg together.
 #   -g    the gamma of RBF-SVM, and you can not use this parameter with -f and -cg together.
 #   -o    if you choose the parameter -f, you should input a folder name, and if you choose the parameter -d, you should input a file name.
-#   -cg   the Hyperparameters file which has been created in Search function (4), and you can not use this parameter with -d, -c and -g together.
+#   -cg   the Hyperparameters file which has been created in Search function (4) or defined in Mhys function (14), and you can not use this parameter with -d, -c and -g together.
 #   -cv   the cross validation fold of SVM, you can choose 5, 10 or -1 or define it by your experience.
 ```
 #### Example
@@ -213,7 +213,7 @@ python RPCT_linux.py intlen -tf train_feature_folder -pf predict_feature_folder 
 #   -tf    input the train feature folder name.
 #   -pf    input the predict feature folder name which has been created by an independent datasets.
 #   -ef    input the eval result file name which has been created by Eval funtion and saved in eval_result folder.
-#   -cg    the Hyperparameters file which has been created in Search function (4).
+#   -cg    the Hyperparameters file which has been created in Search function (4) or defined in Mhys function (14).
 #   -m     the number of integrated-learning members.
 ```
 #### Example
