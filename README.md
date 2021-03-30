@@ -207,7 +207,7 @@ python RPCT_linux.py res CHAM830102
 Choose the top-n classify model to participate in the Integrated-Learning which predict through majority vote mothod.
 #### Command line
 ```
-python RPCT_linux.py intlen -tf train_feature_folder -pf predict_feature_folder -ef eval_result_file -cg Hyperparameters_file_name -m member
+python RPCT_linux.py intlen -tf train_feature_folder -pf predict_feature_folder -ef eval_file -cg Hyperparameters_name -m member
 
 # optional arguments:
 #   -tf    input the train feature folder name.
