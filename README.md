@@ -26,7 +26,7 @@ python RPCT_linux.py <Fuctions> <parameters>
 Load Fasta datasets and split them into separate fasta files.
 #### Command line
 ```
-python RPCT_linux.py read file_name -o out_folder
+python RPCT_linux.py [read] file_name [-o] out_folder
 
 # optional arguments:
 #   file_name  input your Fasta datasets name, and you should make sure your file in the current folder.
@@ -40,7 +40,7 @@ python RPCT_linux.py read test_positive.fasta -o test_p
 Get PSSM profiles through _psiblast_ function provided by _BLAST+_ (https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/).
 #### Command line
 ```
-python RPCT_linux.py blast folder_name -db blast_database_name -n num_iterations -ev expected_value -o out_folder_name
+python RPCT_linux.py [blast] folder_name [-db] blast_database_name [-n] num_iterations [-ev] expected_value [-o] out_folder_name
 
 # optional arguments:
 #   folder_name  input the Fasta folder name which has been created in Read function (1).
@@ -57,7 +57,7 @@ python RPCT_linux.py blast test_p -db pdbaa -n 3 -ev 0.001 -o pssm-tp
 Extract PSSM files through RAAC-PSSM extraction method. And output them in a new document or folder.
 #### Command line
 ```
-python RPCT_linux.py extract folder_name -raa raac_book_name -o out_folder -l windows_size -r self_raa_code
+python RPCT_linux.py [extract] folder_name [-raa] raac_book_name [-o] out_folder [-l] windows_size [-r] self_raa_code
 
 # optional arguments:
 #   folder_name  input the PSSM folder name which has been created in Blast function (2).
@@ -75,7 +75,7 @@ python RPCT_linux.py extract pssm-tp -o My_train -l 5 -r LVIMC-AGST-PHC-FYW-EDNQ
 Search Hyperparameters of the target feature file through the grid function provided by LIBSVM (https://www.csie.ntu.edu.tw/~cjlin/libsvm/oldfiles/index-1.0.html).
 #### Command line
 ```
-python RPCT_linux.py search -d document_name -f folder_name
+python RPCT_linux.py [search] [-d] document_name [-f] folder_name
 
 # optional arguments:
 #   -d    input the target feature file and output a single result of it, and you can not use this parameter and -f together.
@@ -90,7 +90,7 @@ python RPCT_linux.py search -f Train_fs
 Filter the features of the target feature file through the IFS-RF method (Incremental Feature Selection based on the Relief-Fscore method). And output an ACC_Chart and a Feature_sort_file for the target feature file
 #### Command line
 ```
-python RPCT_linux.py filter document_name -c c_number -g gamma -cv cross_validation_fold -o out_file_name -r random_number
+python RPCT_linux.py [filter] document_name [-c] c_number [-g] gamma [-cv] cross_validation_fold [-o] out_file_name [-r] random_number
 
 # optional arguments:
 #   document_name   input the target feature file name.
@@ -108,7 +108,7 @@ python RPCT_linux.py filter .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -cv 5 -n 190 -
 Create a filtered feature file of the target feature file through the Feature_Sort_File which has been output in Filter function.
 #### Command line
 ```
-python RPCT_linux.py fffs document_name -f feature_sort_file -n stop_feature_number -o out_file_name
+python RPCT_linux.py [fffs] document_name [-f] feature_sort_file [-n] stop_feature_number [-o] out_file_name
 
 # optional arguments:
 #   document_name    input the target feature file which has been chosen in Filter function.
@@ -124,7 +124,7 @@ python RPCT_linux.py fffs .\Train_fs\t1s2_rpct.fs -f t1s2-ifs.txt -n 72 -o t1s2-
 Train feature files through the LIBSVM.
 #### Command line
 ```
-python RPCT_linux.py train -d document_name -f input_folder_name -c c_number -g gamma -o out_folder -cg Hyperparameters_name
+python RPCT_linux.py [train] [-d] document_name [-f] input_folder_name [-c] c_number [-g] gamma [-o] out_folder [-cg] Hyperparameters_name
 
 # optional arguments:
 #   -d    input the target feature file, and you can not use this parameter with -f and -cg together.
@@ -143,7 +143,7 @@ python RPCT_linux.py train -f Train_fs -o .\Train_fs\t1s2_rpct.fs -cg Hyperparam
 Evaluate feature files through the Cross-validation function provided by LIBSVM.
 #### Command line
 ```
-python RPCT_linux.py eval -d document_name -f folder_name -c c_number -g gamma -o out_folder -cg Hyperparameters_name -cv cross_validation_fold
+python RPCT_linux.py [eval] [-d] document_name [-f] folder_name [-c] c_number [-g] gamma [-o] out_folder [-cg] Hyperparameters_name [-cv] cross_validation_fold
 
 # optional arguments:
 #   -d    input the target feature file, and you can not use this parameter with -f and -cg together.
@@ -163,7 +163,7 @@ python RPCT_linux.py train -f Train_fs -o Model_fs -cg Hyperparameters.txt
 Draw the ROC-Cruve by sklearn.
 #### Command line
 ```
-python RPCT_linux.py roc document_name -c c_number -g gamma -o out_file_name
+python RPCT_linux.py [roc] document_name [-c] c_number [-g] gamma [-o] out_file_name
 
 # optional arguments:
 #   document_name    input the target feature file.
@@ -179,7 +179,7 @@ python RPCT_linux.py roc .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -n 190
 Evaluate the target model with a feature files which from an independent datasets. And output a Evaluation_file and a Prediction_result for the target model.
 #### Command line
 ```
-python RPCT_linux.py predict document_name -m model_name -o out_file_name
+python RPCT_linux.py [predict] document_name [-m] model_name [-o] out_file_name
 
 # optional arguments:
 #   document_name    input the target feature file, and make sure it has the same reduce type with the target model.
@@ -194,7 +194,7 @@ python RPCT_linux.py predict .\Predict_fs\t1s2_rpct.fs -m t1s2.model -o t1s2
 Reduce amino acids by personal rules. And output a personal RAAC list from size_2 to size_19.
 #### Command line
 ```
-python RPCT_linux.py res aaindex_id
+python RPCT_linux.py [res] aaindex_id
 
 # optional arguments:
 #   aaindex_id    the ID of physical and chemical characteristics in AAindex Database, and you can check it in aaindexDB folder in rpct folder or view it online.
@@ -207,7 +207,7 @@ python RPCT_linux.py res CHAM830102
 Choose the top-n classify model to participate in the Integrated-Learning which predict through majority vote mothod.
 #### Command line
 ```
-python RPCT_linux.py intlen -tf train_feature_folder -pf predict_feature_folder -ef eval_file -cg Hyperparameters_name -m member
+python RPCT_linux.py [intlen] [-tf] train_feature_folder [-pf] predict_feature_folder [-ef] eval_file [-cg] Hyperparameters_name [-m] member
 
 # optional arguments:
 #   -tf    input the train feature folder name.
@@ -224,7 +224,7 @@ python RPCT_linux.py intlen -tf Train_fs -pf Predict_fs -ef .\Eval_fs\Features_e
 Filter the features of the target feature file through the PCA method. And output an ACC_Chart and a Feature_sort_file for the target feature file.
 #### Command line
 ```
-python RPCT_linux.py pca document_name -c c_number -g gamma -o out_file_name -cv cross_validation_fold
+python RPCT_linux.py [pca] document_name [-c] c_number [-g] gamma [-o] out_file_name [-cv] cross_validation_fold
 
 # optional arguments:
 #   document_name    input the feature file name.
@@ -241,7 +241,7 @@ python RPCT_linux.py pca .\Predict_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -cv 5
 Define Hyperparameters file for a target feature folder by your experience.
 #### Command line
 ```
-python RPCT_linux.py mhys folder_name -c c_number -g gamma -o out_file_name
+python RPCT_linux.py [mhys] folder_name [-c] c_number [-g] gamma [-o] out_file_name
 
 # optional arguments:
 #   folder_name    input the train feature folder name.
@@ -257,7 +257,7 @@ python RPCT_linux.py mhys Train_fs -c 2 -g 0.125 -o Hys_2.txt
 Use the ray package for multi-threaded psiblast comparison.
 #### Command line
 ```
-python RPCT_linux.py rblast folder_name -o out_folder_name
+python RPCT_linux.py [rblast] folder_name [-o] out_folder_name
 
 # optional arguments:
 #   folder_name    input the target fasta folder which has been created in Read function (1).
@@ -271,7 +271,7 @@ python RPCT_linux.py rblast test_p -o pssm-rp
 Supplement blast when the Blast and Rblast functions miss some sequences.
 #### Command line
 ```
-python RPCT_linux.py rsup folder_name -o out_folder_name
+python RPCT_linux.py [rsup] folder_name [-o] out_folder_name
 
 # optional arguments:
 #   folder_name    input the target fasta folder which has been created in Read function (1).
@@ -285,7 +285,7 @@ python RPCT_linux.py rsup test_p -o pssm-rp
 Make blast database by makeblastdb function provided by BLAST+. You can make a personal datasets or choose a public database from Blast (https://ftp.ncbi.nlm.nih.gov/blast/db/).
 #### Command line
 ```
-python RPCT_linux.py makedb datasets_name -o out_database_name
+python RPCT_linux.py [makedb] datasets_name [-o] out_database_name
 
 # optional arguments:
 #   database_name    input the target fasta database, and make sure it located in the current folder.
