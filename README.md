@@ -221,7 +221,7 @@ python RPCT_linux.py intlen -tf train_feature_folder -pf predict_feature_folder 
 python RPCT_linux.py intlen -tf Train_fs -pf Predict_fs -ef .\Eval_fs\Features_eval.csv -cg Hyperparameters.txt -m 10
 ```
 #### 13. PCA
-Filter the features of the target feature file through the PCA method. And output an ACC_Chart and a Feature_sort_file for the target feature file
+Filter the features of the target feature file through the PCA method. And output an ACC_Chart and a Feature_sort_file for the target feature file.
 #### Command line
 ```
 python RPCT_linux.py pca document_name -c c_number -g gamma -o out_file_name -cv cross_validation_fold
