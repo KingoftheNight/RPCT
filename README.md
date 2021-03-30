@@ -176,7 +176,7 @@ python RPCT_linux.py roc document_name -c c_number -g gamma -o out_file_name
 python RPCT_linux.py roc .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -n 190
 ```
 #### 10. Predict
-Evaluate the target model with a feature files which from an independent datasets. And output a Evaluation_file and Prediction_result for the target model.
+Evaluate the target model with a feature files which from an independent datasets. And output a Evaluation_file and a Prediction_result for the target model.
 #### Command line
 ```
 python RPCT_linux.py predict document_name -m model_name -o out_file_name
