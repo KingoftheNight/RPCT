@@ -242,5 +242,5 @@ python RPCT_linux.py rsup input_folder_name -o out_folder_name
 ```
 #### Example
 ```
-python RPCT_linux.py rblast test_p -o pssm-rp
+python RPCT_linux.py rsup test_p -o pssm-rp
 ```
