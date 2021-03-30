@@ -1,7 +1,7 @@
 # RPCT
 A protein classification prediction toolkit based on RAAC-PSSM
 ## Introduction
-The RPCT toolkit is a dedicated toolkit based on the RAAC-PSSM prot-ein classification prediction method. It uses 7 feature extraction methods and SVM for protein classification prediction.
+The RPCT toolkit is a dedicated toolkit based on the RAAC-PSSM prot-ein classification prediction method. It uses 7 feature extraction methods and SVM for protein classification prediction. In addition, we have built convenient programs on both Windows and Linux platforms. User can run the RPCT_windows.py to open a GUI and submit commands quickly. Or user can run the RPCT_linux.py and submit commands directly.
 ### Quick Start
 1. The RPCT package is written in Python. It is recommended to use [conda](https://www.anaconda.com/download/) to manage python packages. Or please make sure all the following packages are installed in their Python environment: ray, sklearn, blast.
 ```
