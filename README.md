@@ -120,7 +120,7 @@ python RPCT_linux.py train -d input_document_name -f input_folder_name -c c_numb
 #### Example
 ```
 python RPCT_linux.py train -d .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2
-python RPCT_linux.py train -f Train_fs -o Model_fs -cg Hyperparameters.txt
+python RPCT_linux.py train -f Train_fs -o .\Train_fs\t1s2_rpct.fs -cg Hyperparameters.txt
 ```
 #### 8. Eval
 Evaluate feature files through the Cross-validation function provided by LIBSVM.
@@ -149,4 +149,18 @@ python RPCT_linux.py roc input_document_name -c c_number -g gamma -o out_file_na
 #### Example
 ```
 python RPCT_linux.py roc .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -n 190
+```
+#### 10. Predict
+Evaluate the target model with a feature files which from a independent datasets. And output a Evaluation_file for the target model.
+#### Command line
+```
+python RPCT_linux.py predict input_document_name -m target_model_name -o out_file_name
+
+# optional arguments:
+#   input_document_name    input the target feature file, and make sure it has the same reduce type with the target model.
+#   -m                     input the target model file, and make sure it has the same reduce type with the target feature file.
+```
+#### Example
+```
+python RPCT_linux.py predict .\Predict_fs\t1s2_rpct.fs -m t1s2.model -o t1s2
 ```
