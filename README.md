@@ -151,7 +151,7 @@ python RPCT_linux.py roc input_document_name -c c_number -g gamma -o out_file_na
 python RPCT_linux.py roc .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -n 190
 ```
 #### 10. Predict
-Evaluate the target model with a feature files which from a independent datasets. And output a Evaluation_file for the target model.
+Evaluate the target model with a feature files which from an independent datasets. And output a Evaluation_file for the target model.
 #### Command line
 ```
 python RPCT_linux.py predict input_document_name -m target_model_name -o out_file_name
@@ -176,4 +176,20 @@ python RPCT_linux.py res aaindex_id
 #### Example
 ```
 python RPCT_linux.py res CHAM830102
+```
+#### 12. IntLen
+Choose the top-n classify model to participate in the Integrated-Learning which predict through majority vote mothod.
+#### Command line
+```
+python RPCT_linux.py intlen -tf train_feature_folder -pf predict_feature_folder -ef eval_result_file -cg Hyperparameters_file_name -m member
+
+# optional arguments:
+#   -tf    input the train feature folder name.
+#   -pf    input the predict feature folder name which has been created by an independent datasets.
+#   -ef    input the eval result file name which has been created by Eval funtion and saved in eval_result folder.
+#   -m     the number of integrated-learning members.
+```
+#### Example
+```
+python RPCT_linux.py intlen -tf Train_fs -pf Predict_fs -ef .\Eval_fs\Features_eval.csv -cg Hyperparameters.txt -m 10
 ```
