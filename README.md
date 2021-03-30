@@ -193,3 +193,54 @@ python RPCT_linux.py intlen -tf train_feature_folder -pf predict_feature_folder 
 ```
 python RPCT_linux.py intlen -tf Train_fs -pf Predict_fs -ef .\Eval_fs\Features_eval.csv -cg Hyperparameters.txt -m 10
 ```
+#### 13. PCA
+Filter the features of the target feature file through the PCA method. And output an ACC_Chart and a Feature_sort_file for the target feature file
+#### Command line
+```
+python RPCT_linux.py pca input_document_name -c c_number -g gamma -o out_file_name -cv cross_validation_fold
+```
+#### Example
+```
+python RPCT_linux.py pca .\Predict_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -cv 5
+```
+#### 14. Mhys
+Define Hyperparameters file for a target feature folder by your experience.
+#### Command line
+```
+python RPCT_linux.py mhys input_folder_name -c c_number -g gamma -o out_file_name
+
+# optional arguments:
+#   input_folder_name    input the train feature folder name.
+```
+#### Example
+```
+python RPCT_linux.py pca .\Predict_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -cv 5
+```
+#### 15. Rblast
+Use the ray package for multi-threaded psiblast comparison.
+#### Command line
+```
+python RPCT_linux.py rblast input_folder_name -o out_folder_name
+
+# optional arguments:
+#   input_folder_name    input the target fasta folder which has been created in Read function.
+#   -o                   input the out folder name, and the folder saved by default in PSSMs folder.
+```
+#### Example
+```
+python RPCT_linux.py rblast test_p -o pssm-rp
+```
+#### 16. Rsup
+Supplement blast when the Blast and Rblast functions miss some sequences.
+#### Command line
+```
+python RPCT_linux.py rsup input_folder_name -o out_folder_name
+
+# optional arguments:
+#   input_folder_name    input the target fasta folder which has been created in Read function.
+#   -o                   input the out folder name, and the folder saved by default in PSSMs folder.
+```
+#### Example
+```
+python RPCT_linux.py rblast test_p -o pssm-rp
+```
