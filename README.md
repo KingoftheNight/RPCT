@@ -251,7 +251,7 @@ python RPCT_linux.py mhys folder_name -c c_number -g gamma -o out_file_name
 ```
 #### Example
 ```
-python RPCT_linux.py pca .\Predict_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -cv 5
+python RPCT_linux.py mhys Train_fs -c 2 -g 0.125 -o Hys_2.txt
 ```
 #### 15. Rblast
 Use the ray package for multi-threaded psiblast comparison.
