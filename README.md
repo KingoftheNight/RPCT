@@ -23,10 +23,14 @@ python RPCT_linux.py <Fuctions> <parameters>
 ```
 ### Usage For Linux
 #### 1. Read
-Load your Fasta datasets and split them into separate fasta files.
+Load Fasta datasets and split them into separate fasta files.
 #### Command line
 ```
 python RPCT_linux.py read file_name -o out_folder
+
+# optional arguments:
+#   file_name  input your Fasta datasets name, and you should make sure your file in the current folder.
+#   -o         input the out folder name, and it will be saved by default in Reads folder.
 ```
 #### Example
 ```
@@ -37,6 +41,13 @@ Get PSSM profiles through _psiblast_ function provided by _BLAST+_ (https://ftp.
 #### Command line
 ```
 python RPCT_linux.py blast input_folder_name -db blast_database_name -n num_iterations -ev expected_value -o out_folder
+
+# optional arguments:
+#   input_folder_name  input your Fasta datasets name, and you should make sure your file in the current folder.
+#   -db                choose the blast database, or you can make your database through Makedb function.
+#   -n                 input the out folder name, and it will be saved by default in Reads folder.
+#   -db                input the out folder name, and it will be saved by default in Reads folder.
+#   -o                 input the out folder name, and it will be saved by default in Reads folder.
 ```
 #### Example
 ```
@@ -243,4 +254,18 @@ python RPCT_linux.py rsup input_folder_name -o out_folder_name
 #### Example
 ```
 python RPCT_linux.py rsup test_p -o pssm-rp
+```
+#### 17. Makedb
+Make blast database by makeblastdb function provided by BLAST+. You can make a personal datasets or choose a public database from Blast (https://ftp.ncbi.nlm.nih.gov/blast/db/).
+#### Command line
+```
+python RPCT_linux.py makedb input_datasets_name -o out_database_name
+
+# optional arguments:
+#   input_database_name    input the target fasta database, and make sure it located in the current folder.
+#   -o                     input the out database name, and it will be saved by default in blastDB folder in rpct folder.
+```
+#### Example
+```
+python RPCT_linux.py makedb pdbaa -o pdbaa
 ```
