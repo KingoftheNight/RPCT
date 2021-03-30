@@ -213,7 +213,7 @@ python RPCT_linux.py intlen -tf train_feature_folder -pf predict_feature_folder 
 #   -tf    input the train feature folder name.
 #   -pf    input the predict feature folder name which has been created by an independent datasets.
 #   -ef    input the eval result file name which has been created by Eval funtion and saved in eval_result folder.
-#   -cg    the Hyperparameters file which has been created in Search function (4), and you can not use this parameter with -d, -c and -g together.
+#   -cg    the Hyperparameters file which has been created in Search function (4).
 #   -m     the number of integrated-learning members.
 ```
 #### Example
