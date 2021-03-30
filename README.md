@@ -164,3 +164,16 @@ python RPCT_linux.py predict input_document_name -m target_model_name -o out_fil
 ```
 python RPCT_linux.py predict .\Predict_fs\t1s2_rpct.fs -m t1s2.model -o t1s2
 ```
+#### 11. Res
+Reduce amino acids by personal rules. And output a personal RAAC list from size_2 to size_19.
+#### Command line
+```
+python RPCT_linux.py res aaindex_id
+
+# optional arguments:
+#   aaindex_id    the ID of physical and chemical characteristics in AAindex Database, and you can check it in aaindexDB folder in rpct folder or view it online.
+```
+#### Example
+```
+python RPCT_linux.py res CHAM830102
+```
