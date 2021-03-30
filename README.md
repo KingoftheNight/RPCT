@@ -62,7 +62,7 @@ python RPCT_linux.py extract pssm-tp -o My_train -l 5 -r LVIMC-AGST-PHC-FYW-EDNQ
 Search Hyperparameters of the target feature file through the grid function provided by LIBSVM (https://www.csie.ntu.edu.tw/~cjlin/libsvm/oldfiles/index-1.0.html).
 #### Command line
 ```
-python RPCT_linux.py search -d document_name -f folder_name
+python RPCT_linux.py search -d input_document_name -f folder_name
 
 # optional arguments:
 #   -d    input the target feature file and output a single result of it, and you can not use this parameter and -f together.
@@ -77,7 +77,7 @@ python RPCT_linux.py search -f Train_fs
 Filter the features of the target feature file through the IFS-RF method (Incremental Feature Selection based on the Relief-Fscore method). And output an ACC_Chart and a Feature_sort_file for the target feature file
 #### Command line
 ```
-python RPCT_linux.py filter document_name -c c_number -g gamma -cv cross_validation_fold -n feature_number -o out_file_name -r random_number
+python RPCT_linux.py filter input_document_name -c c_number -g gamma -cv cross_validation_fold -n total_feature_number -o out_file_name -r random_number
 
 # optional arguments:
 #   -c    the penalty coefficient of SVM, you can get it through Search function or define it by your experience.
@@ -93,17 +93,17 @@ python RPCT_linux.py filter .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -cv 5 -n 190 -
 Create a filtered feature file of the target feature file through the Feature_Sort_File which has been output in Filter function.
 #### Command line
 ```
-python RPCT_linux.py fffs document_name -f feature_sort_file -n hole_feature_number -l stop_feature_number
+python RPCT_linux.py fffs input_document_name -f feature_sort_file -n total_feature_number -l stop_feature_number -o out_file_name
 
 # optional arguments:
-#   document_name    the target feature file which has been chosen in Filter function.
-#   -f               the Feature_Sort_File which has been created in Filter function.
-#   -n               the feature number of target feature file.
-#   -l               the stop feature number of target feature file, and you can find it in the ACC_Chart which has been created in Filter function.
+#   input_document_name    the target feature file which has been chosen in Filter function.
+#   -f                     the Feature_Sort_File which has been created in Filter function.
+#   -n                     the total feature number of target feature file.
+#   -l                     the stop feature number of target feature file, and you can find it in the ACC_Chart which has been created in Filter function.
 ```
 #### Example
 ```
-python RPCT_linux.py fffs .\Train_fs\t1s2_rpct.fs -f t1s2-ifs.txt -n 190 -l 72
+python RPCT_linux.py fffs .\Train_fs\t1s2_rpct.fs -f t1s2-ifs.txt -n 190 -l 72 -o t1s2-72
 ```
 #### 7. Train
 Train feature files through the LIBSVM.
@@ -139,4 +139,14 @@ python RPCT_linux.py eval -d input_document_name -f input_folder_name -c c_numbe
 ```
 python RPCT_linux.py train -d .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2
 python RPCT_linux.py train -f Train_fs -o Model_fs -cg Hyperparameters.txt
+```
+#### 9. ROC
+Draw the ROC-Cruve by sklearn.
+#### Command line
+```
+python RPCT_linux.py roc input_document_name -c c_number -g gamma -o out_file_name -n total_feature_number
+```
+#### Example
+```
+python RPCT_linux.py roc .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2 -n 190
 ```
