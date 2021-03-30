@@ -50,8 +50,8 @@ python RPCT_linux.py extract input_folder_name -raa raac_book_name -o out_folder
 
 # optional arguments:
 #   -raa  raac book saved in raacDB folder in rpct, and you can not use this parameter and -r together.
-#   -o    if you choose the parameter -raa, you should input a folder name, and if you choose the parameter -r, you should input a file name
-#   -r    self_raa_code format should contain all amino acid types, and be separated by '-', for example: LVIMC-AGST-PHC-FYW-EDNQ-KR
+#   -o    if you choose the parameter -raa, you should input a folder name, and if you choose the parameter -r, you should input a file name.
+#   -r    self_raa_code format should contain all amino acid types, and be separated by '-', for example: LVIMC-AGST-PHC-FYW-EDNQ-KR .
 ```
 #### Example
 ```
@@ -103,4 +103,21 @@ python RPCT_linux.py fffs document_name -f feature_sort_file -n hole_feature_num
 #### Example
 ```
 python RPCT_linux.py fffs .\Train_fs\t1s2_rpct.fs -f t1s2-ifs.txt -n 190 -l 72
+```
+#### 7. Train
+Train feature files through the LIBSVM.
+#### Command line
+```
+python RPCT_linux.py train -d input_document_name -f input_folder_name -c c_number -g gamma -o out_folder -cg Hyperparameters_file_name
+
+# optional arguments:
+#   -d    input the target feature file, and you can not use this parameter with -f and -cg together.
+#   -f    input the feature folder, and you can not use this parameter with -d, -c and -g together.
+#   -o    if you choose the parameter -f, you should input a folder name, and if you choose the parameter -d, you should input a file name.
+#   -cg   the Hyperparameters file which has been created in Search function, and you can not use this parameter with -d, -c and -g together.
+```
+#### Example
+```
+python RPCT_linux.py train -d .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2
+python RPCT_linux.py train -f Train_fs -o Model_fs -cg Hyperparameters.txt
 ```
