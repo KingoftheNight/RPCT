@@ -74,7 +74,7 @@ python RPCT_linux.py search -d .\Train_fs\t1s2_rpct.fs
 python RPCT_linux.py search -f Train_fs
 ```
 #### 5. Filter
-Filter the features of the target feature file through the IFS-RF method (Incremental Feature Selection based on the Relief-Fscore method).
+Filter the features of the target feature file through the IFS-RF method (Incremental Feature Selection based on the Relief-Fscore method). And output an ACC_Chart and a Feature_sort_file for the target feature file
 #### Command line
 ```
 python RPCT_linux.py filter document_name -c c_number -g gamma -cv cross_validation_fold -n feature_number -o out_file_name -r random_number
@@ -93,12 +93,13 @@ python RPCT_linux.py filter .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -cv 5 -n 190 -
 Create a filtered feature file of the target feature file through the Feature_Sort_File which has been output in Filter function.
 #### Command line
 ```
-python RPCT_linux.py fffs document_name -f feature_sort_file -n hole_feature_number -l last_feature_number
+python RPCT_linux.py fffs document_name -f feature_sort_file -n hole_feature_number -l stop_feature_number
 
 # optional arguments:
-#   -f    the Feature_Sort_File.
-#   -n    the gamma of RBF-SVM, you can get it through Search function or define it by your experience.
-#   -l    the cross validation fold of SVM, you can choose 5, 10 or -1 or define it by your experience.
+#   document_name    the target feature file which has been chosen in Filter function.
+#   -f               the Feature_Sort_File which has been created in Filter function.
+#   -n               the feature number of target feature file.
+#   -l               the stop feature number of target feature file, and you can find it in the ACC_Chart which has been created in Filter function.
 ```
 #### Example
 ```
@@ -115,6 +116,24 @@ python RPCT_linux.py train -d input_document_name -f input_folder_name -c c_numb
 #   -f    input the feature folder, and you can not use this parameter with -d, -c and -g together.
 #   -o    if you choose the parameter -f, you should input a folder name, and if you choose the parameter -d, you should input a file name.
 #   -cg   the Hyperparameters file which has been created in Search function, and you can not use this parameter with -d, -c and -g together.
+```
+#### Example
+```
+python RPCT_linux.py train -d .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -o t1s2
+python RPCT_linux.py train -f Train_fs -o Model_fs -cg Hyperparameters.txt
+```
+#### 8. Eval
+Evaluate feature files through the Cross-validation function provided by LIBSVM.
+#### Command line
+```
+python RPCT_linux.py eval -d input_document_name -f input_folder_name -c c_number -g gamma -o out_folder -cg Hyperparameters_file_name -cv cross_validation_fold
+
+# optional arguments:
+#   -d    input the target feature file, and you can not use this parameter with -f and -cg together.
+#   -f    input the feature folder, and you can not use this parameter with -d, -c and -g together.
+#   -o    if you choose the parameter -f, you should input a folder name, and if you choose the parameter -d, you should input a file name.
+#   -cg   the Hyperparameters file which has been created in Search function, and you can not use this parameter with -d, -c and -g together.
+#   -cv   the cross validation fold of SVM, you can choose 5, 10 or -1 or define it by your experience.
 ```
 #### Example
 ```
