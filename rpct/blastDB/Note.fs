@@ -1,0 +1,1 @@
+# This folder is used to save all the blast databases you need.
