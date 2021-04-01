@@ -4,7 +4,7 @@ import tkinter as tk
 import time
 from tkinter import ttk
 import os
-from rpct import ReadBE, RocMP, TrainFP, Fuction_win
+from rpct import ReadBE, RocMP, TrainFP, Fuction_win, SSC
 now_path = os.getcwd()
 
 # create messagebox ###########################################################
@@ -378,6 +378,51 @@ def messagebox_raa():
                        height=1,command=gui_exit)
     b_mrw_back.pack(side='bottom',fill='x')
     mrw.mainloop()
+
+def messagebox_view():
+    #fuction
+    def gui_view():
+        var.set('View RAAC Map Of Different Type')
+        view_n = e_view_n.get()
+        view_t = e_view_t.get()
+        if len(view_n) != 0 and len(view_t) != 0:
+            print('\n>>>View RAAC Map...\n')
+            SSC.SSC_main(view_n, view_t, now_path)
+            v_command = 'view ' + view_n + ' -t ' + view_t
+            var.set(v_command)
+            o_m = n_var.get()
+            n_var.set(o_m + '\n' + v_command)
+    def gui_exit():
+        mvw.destroy()
+        mvw.quit()
+    #new window
+    mvw =  tk.Toplevel(window) 
+    mvw.title('View RAAC Map Of Different Type')
+    mvw.geometry('500x60')
+    mvw.iconbitmap('.\\rpct\\bin\\logo.ico')
+    #res
+    mvlf_1 = tk.Frame(mvw)
+    mvlf_2 = tk.Frame(mvw)
+    mvlf_1.pack(side='top',fill='x')
+    mvlf_2.pack(side='bottom',fill='x')
+    ######name
+    tk.Label(mvlf_1,text='RAAC Book',width=10,anchor='w').pack(side='left')
+    e_view_n = tk.Entry(mvlf_1,show=None,width=20,font=('SimHei', 11))
+    e_view_n.pack(side='left')
+    tk.Label(mvlf_1,text='',width=2,anchor='w').pack(side='left')
+    ######type
+    tk.Label(mvlf_1,text='type',width=6,anchor='w').pack(side='left')
+    e_view_t = tk.Entry(mvlf_1,show=None,width=10,font=('SimHei', 11))
+    e_view_t.pack(side='left')
+    tk.Label(mvlf_1,text='',width=2,anchor='w').pack(side='left')
+    ######button
+    b_predict = tk.Button(mvlf_1,text='run',font=('SimHei', 11),width=5,height=1,command=gui_view)
+    b_predict.pack(side='right')
+    #exit
+    b_mvw_back = tk.Button(mvlf_2,text='Exit',font=('SimHei',11),bg='#75E4D7',relief='flat',
+                       height=1,command=gui_exit)
+    b_mvw_back.pack(side='bottom',fill='x')
+    mvw.mainloop()
 
 def messagebox_edit_raac():
     #fuction
@@ -1142,6 +1187,7 @@ toolmenu.add_command(label='Integrated Learning',command=messagebox_intlen)
 toolmenu.add_command(label='Multprocess',command=messagebox_help_Multprocess)
 toolmenu.add_command(label='Principal Component Analysis',command=messagebox_pca)
 toolmenu.add_command(label='Self Reduce Amino Acids Code',command=messagebox_raa)
+toolmenu.add_command(label='View RAAC Map Of Different Types',command=messagebox_view)
 #help menu
 editmenu = tk.Menu(root_menu, tearoff=0)
 root_menu.add_cascade(label='Help',menu=editmenu)

@@ -4,7 +4,7 @@
 # import packages #############################################################
 
 
-from rpct import ReadBE, RocMP, TrainFP, Multprocess
+from rpct import ReadBE, RocMP, TrainFP, Multprocess, SSC
 import argparse
 import os
 now_path = os.getcwd()
@@ -124,6 +124,10 @@ def parse_rblast(args):
 # ray supplement
 def parse_rsup(args):
     Multprocess.ray_supplement(args.folder[0], args.out[0], now_path)
+
+# view raac map
+def parse_view(args):
+    SSC.SSC_main(args.file[0], args.type_raac[0], now_path)
 
 
 # argparse ####################################################################
@@ -249,6 +253,11 @@ def rpct_main():
     parser_rs.add_argument('folder', nargs=1, help='input sequence folder')
     parser_rs.add_argument('-o', '--out', nargs=1, help='out folder')
     parser_rs.set_defaults(func=parse_rsup)
+    # view
+    parser_vw = subparsers.add_parser('view', add_help=False, help='view raac map')
+    parser_vw.add_argument('file', nargs=1, help='input raac book name')
+    parser_vw.add_argument('-t', '--type_raac', nargs=1, help='type of raac')
+    parser_vw.set_defaults(func=parse_view)
 
     args = parser.parse_args()
     try:
