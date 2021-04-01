@@ -295,3 +295,17 @@ python RPCT_linux.py [makedb] datasets_name [-o] out_database_name
 ```
 python RPCT_linux.py makedb pdbaa -o pdbaa
 ```
+#### 18. View
+Make blast database by makeblastdb function provided by BLAST+. You can make a personal datasets or choose a public database from Blast (https://ftp.ncbi.nlm.nih.gov/blast/db/).
+#### Command line
+```
+python RPCT_linux.py [view] raac_book_name [-t] type_raac
+
+# optional arguments:
+#   raac_book_name    input the target fasta database, and make sure it located in the current folder.
+#   -t                input the out database name, and it will be saved by default in blastDB folder in rpct folder.
+```
+#### Example
+```
+python RPCT_linux.py makedb pdbaa -o pdbaa
+```
