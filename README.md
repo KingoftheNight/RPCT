@@ -90,7 +90,7 @@ python RPCT_linux.py search -f Train_fs
 Filter the features of the target feature file through the IFS-RF method (Incremental Feature Selection based on the Relief-Fscore method). And output an ACC_Chart and a Feature_sort_file for the target feature file
 #### Command line
 ```
-python RPCT_linux.py [filter] document_name [-c] c_number [-g] gamma [-cv] cross_validation_fold [-o] out_file_name [-r] random_number
+python RPCT_linux.py [filter] document_name [-c] c_number [-g] gamma [-cv] cross_validation_fold [-o] out_file_name [-r] random_number [-raac] out_file_name [-t] random_number
 
 # optional arguments:
 #   document_name   input the target feature file name.
@@ -99,10 +99,12 @@ python RPCT_linux.py [filter] document_name [-c] c_number [-g] gamma [-cv] cross
 #   -cv             the cross validation fold of SVM, you can choose 5, 10 or -1 or define it by your experience.
 #   -o              input the out file name, and the ACC Chart and Feature sort file will be saved by defualt in current folder.
 #   -r              the random sampling number of Relief method.
+#   -raac           input the raac book name.
+#   -t              input the raac type and size.
 ```
 #### Example
 ```
-python RPCT_linux.py filter .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -cv 5 -n 190 -o t1s2 -r 30
+python RPCT_linux.py filter .\Train_fs\t1s2_rpct.fs -c 8 -g 0.125 -cv 5 -n 190 -o t1s2 -r 30 -raac raaCODE -t t1s2
 ```
 #### 6. Filter Features File Setting
 Create a filtered feature file of the target feature file through the Feature_Sort_File which has been output in Filter function.
