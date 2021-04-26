@@ -60,7 +60,7 @@ Extract PSSM files through RAAC-PSSM extraction method. And output them in a new
 python RPCT_linux.py [extract] folder_name [-raa] raac_book_name [-o] out_folder [-l] windows_size [-r] self_raa_code
 
 # optional arguments:
-#   folder_name  input the PSSM folder name which has been created in Blast function (2).
+#   folder_name  input the two PSSM folders name which has been created in Blast function (2).
 #   -raa         raac book saved in raacDB folder in rpct, and you can not use this parameter and -r together.
 #   -o           if you choose the parameter -raa, you should input a folder name, and if you choose the parameter -r, you should input a file name.
 #   -l           input the window size for the RAAC-PSSM extraction method.
@@ -68,8 +68,8 @@ python RPCT_linux.py [extract] folder_name [-raa] raac_book_name [-o] out_folder
 ```
 #### Example
 ```
-python RPCT_linux.py extract pssm-tp -raa raaCODE -o Train_fs -l 5
-python RPCT_linux.py extract pssm-tp -o My_train -l 5 -r LVIMC-AGST-PHC-FYW-EDNQ-KR
+python RPCT_linux.py extract pssm-tp pssm-tn -raa raaCODE -o Train_fs -l 5
+python RPCT_linux.py extract pssm-tp pssm-tn  -o My_train -l 5 -r LVIMC-AGST-PHC-FYW-EDNQ-KR
 ```
 #### 4. Search
 Search Hyperparameters of the target feature file through the grid function provided by LIBSVM (https://www.csie.ntu.edu.tw/~cjlin/libsvm/oldfiles/index-1.0.html).
