@@ -325,5 +325,18 @@ python RPCT_linux.py [weblogo] pssm_file_name [-raa] raac_book_name [-r] reduce_
 ```
 #### Example
 ```
-python RPCT_linux.py weblogo PSSMs/pssm-tp/1 -raa raaCODE -r t1s5 -o t1s5
+python RPCT_linux.py weblogo .\PSSMs\pssm-tp\1 -raa raaCODE -r t1s5 -o t1s5
+```
+#### 20. Check Blast Database
+Check and remove the repetitive sequences in blast database.
+#### Command line
+```
+python RPCT_linux.py [checkdb] database_name
+
+# optional arguments:
+#   database_name    input the target blast database of FASTA format.
+```
+#### Example
+```
+python RPCT_linux.py checkdb pdbaa
 ```
