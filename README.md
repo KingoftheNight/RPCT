@@ -311,3 +311,19 @@ python RPCT_linux.py [view] raac_book_name [-t] type_raac
 ```
 python RPCT_linux.py view raaCODE -t 5
 ```
+#### 19. Weblogo
+View the reduce weblogo of target pssm profile.
+#### Command line
+```
+python RPCT_linux.py [weblogo] pssm_file_name [-raa] raac_book_name [-r] reduce_type [-o] out_file_name
+
+# optional arguments:
+#   pssm_file_name    input the target pssm file path.
+#   -raa              input the target RAAC book name.
+#   -r                input the target reduce type
+#   -o                input the out file name, and the file saved by default in current folder.
+```
+#### Example
+```
+python RPCT_linux.py weblogo PSSMs/pssm-tp/1 -raa raaCODE -r t1s5 -o t1s5
+```
